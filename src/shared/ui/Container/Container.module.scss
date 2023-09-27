@@ -1,0 +1,19 @@
+$paddingDesktop: 80px;
+$paddingTablet: 30px;
+$paddingPhone: 16px;
+.container {
+  height: 100%;
+  width: 100%;
+  max-width: $laptop;
+  position: relative;
+  padding: 0 $paddingDesktop;
+  margin: 0 auto;
+
+  @include mediaTablet {
+    padding: 0 $paddingTablet;
+  }
+
+  @include mediaLPhone {
+    padding: 0 $paddingPhone;
+  }
+}

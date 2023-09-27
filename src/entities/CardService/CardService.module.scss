@@ -1,0 +1,41 @@
+.card{
+  width: 100%;
+  border-radius: var(--chakra-radii-md);
+  box-shadow: var(--chakra-shadows-base);
+  overflow: hidden;
+  background-color: var(--chakra-colors-chakra-body-bg);
+  @include flex(flex, column, space-between, start);
+}
+
+.contentWrapper{
+  width: 100%;
+}
+
+.imgWrapper{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 220px;
+}
+
+.content{
+  width: 100%;
+  padding: 1rem;
+}
+
+.title{
+  margin-bottom: 0.5rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.tags{
+  @include flex(flex, row wrap, start, start);
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.btnWrapper{
+  width: 100%;
+  padding: 0 1rem 1rem;
+}

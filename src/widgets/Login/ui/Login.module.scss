@@ -1,0 +1,94 @@
+.wrapper{
+  @include flex(flex, row, center, center);
+  //background: linear-gradient(110.12deg, #F5447A 15.28%, #1559F3 49.17%, #648EF2 79.25%);
+  //background-size: cover;
+  //background-repeat: no-repeat;
+  position: relative;
+}
+
+.card{
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.title{
+  text-align: center;
+  color: #001934;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  margin-bottom: 1rem;
+}
+
+.input{
+  margin-bottom: 1rem;
+}
+
+.errorText{
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 125%;
+  color: #FA1055;
+  margin-top: 8px;
+}
+
+.btn{
+  margin-top: 1rem;
+  width: 100%;
+  height: 48px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  &:disabled{
+    background: #F6F7FA;
+    color: #95A3AE;
+  }
+}
+
+.btnVk{
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 48px;
+  font-weight: 400;
+  font-size: 16px;
+  & > a {
+    width: 100%;
+    height: 100%;
+    @include flex(flex, row, center, center);
+  }
+}
+
+.link{
+  color: #005CFF;
+}
+
+.logo{
+  width: 100%;
+  max-width: 92px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 60px;
+}
+
+.or{
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.textBottom{
+  width: 100%;
+  text-align: center;
+  margin-top: 0.25rem;
+  font-size: 14px;
+
+  & > a {
+    @include transition;
+    &:hover{
+      color: $secondary;
+    }
+  }
+}

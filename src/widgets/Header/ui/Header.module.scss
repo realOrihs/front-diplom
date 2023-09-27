@@ -1,0 +1,88 @@
+.header{
+  background-color: $primary;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $zHeader;
+}
+
+.container{
+  position: relative;
+  @include flex(flex, row nowrap, space-between, center);
+}
+
+.row{
+  @include flex(flex, row nowrap, flex-start, center);
+  gap: 2rem;
+  height: 100%;
+}
+
+.logoWrapperLink{
+  @include flex(flex, row, center, center);
+}
+
+.nav{
+  @include flex(flex, row nowrap, start, center);
+  gap: 1.5rem;
+  height: 100%;
+
+  @include mediaSTablet{
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    flex-flow: column;
+    background: $primary;
+    height: 0;
+    padding: 0 0;
+    overflow: hidden;
+    z-index: $zHeader;
+    @include transition;
+    &.isOpen{
+      height: calc((var(--vh, 1vh) * 100) - 90px);
+      padding: 32px 0;
+    }
+  }
+}
+
+.link{
+  color: $light-gray;
+  position: relative;
+  @include flex(flex, row, center, center);
+  background: transparent;
+  transition: all 0.2s ease;
+  padding: 8px 12px;
+  border-radius: 999px;
+  &:hover{
+    background: $primary-hover-btn;
+  }
+}
+
+.linkActive{
+  background: $primary-hover-btn;
+  /*&::after{
+    content: '';
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    right: -12px;
+    display: block;
+    width: 0.375rem;
+    height: 0.375rem;
+    background-color: $light-gray;
+    border-radius: 999px;
+  }*/
+}
+
+.burgerWrapper{
+  @include flex(flex, row nowrap, center, center);
+  gap: 16px;
+}
+
+.burgerBtn{
+  width: 32px;
+  height: 32px;
+  @include flex(flex, row nowrap, center, center);
+}

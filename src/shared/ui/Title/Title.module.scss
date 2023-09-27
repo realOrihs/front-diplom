@@ -1,0 +1,11 @@
+.titleWrapper{
+  width: 100%;
+  background: $primary;
+  border-radius: var(--chakra-radii-md);
+  box-shadow: var(--chakra-shadows-base);
+  padding: 16px;
+
+  & > .title{
+    color: $white;
+  }
+}

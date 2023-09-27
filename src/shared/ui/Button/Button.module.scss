@@ -1,0 +1,111 @@
+.button{
+  @include resetButton();
+  border-radius: 4px;
+  padding: 8px 16px;
+  @include flex(flex, row nowrap, center, center);
+  gap: 0.5rem;
+  font-size: inherit;
+  &:not(.text).primary{
+    background-color: $primary;
+    color: $white;
+    & path{
+      fill: $white
+    }
+    transition: background-color 0.2s ease;
+    &:not(.disabled):hover{
+      background-color: $primary-hover-btn;
+    }
+  }
+
+  &:not(.text).secondary{
+    background-color: $secondary;
+    color: $white;
+    & path{
+      fill: $white
+    }
+    transition: background-color 0.2s ease;
+    &:not(.disabled):hover{
+      background-color: $secondary-hover-btn;
+    }
+    &:not(.disabled):active{
+      background-color: $secondary-active-btn;
+    }
+  }
+
+  &.text.primary{
+    & path{
+      fill: $primary;
+      transition: fill 0.2s ease;
+    }
+    transition: color 0.2s ease;
+    &:not(.disabled):hover{
+      color: $primary-hover-btn;
+      & path{
+        fill: $primary-hover-btn;
+      }
+    }
+  }
+
+  &.text.secondary{
+    color: $white;
+    & path{
+      fill: $secondary;
+      transition: fill 0.2s ease;
+    }
+    transition: color 0.2s ease;
+    &:not(.disabled):hover{
+      color: $secondary-hover-btn;
+      & path{
+        fill: $secondary-hover-btn;
+      }
+    }
+    &:not(.disabled):active{
+      color: $secondary-active-btn;
+      & path{
+        fill: $secondary-active-btn;
+      }
+    }
+  }
+
+  &.isIcon.primary{
+    padding: 0;
+    background: transparent !important;
+
+    & path{
+      fill: $white;
+      transition: fill 0.2s ease;
+    }
+    transition: color 0.2s ease;
+    &:not(.disabled):hover{
+      & path{
+        fill: $secondary-hover-btn;
+      }
+    }
+    &:not(.disabled):active{
+      & path{
+        fill: $secondary-active-btn;
+      }
+    }
+  }
+
+  &.isIcon.secondary{
+    padding: 0;
+    background: transparent !important;
+
+    & path{
+      fill: $white;
+      transition: fill 0.2s ease;
+    }
+    transition: color 0.2s ease;
+    &:not(.disabled):hover{
+      & path{
+        fill: $primary-hover-btn;
+      }
+    }
+  }
+
+  &.disabled{
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,234 @@
+@import 'colors';
+@import 'variables';
+
+//Media
+
+// Media
+@mixin media($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin mediaLaptop {
+  @media screen and (max-width: ($laptop - 1)) {
+    @content;
+  }
+}
+
+@mixin mediaTablet {
+  @media screen and (max-width: ($tablet)) {
+    @content;
+  }
+}
+
+@mixin mediaSTablet {
+  @media screen and (max-width: ($s-tablet)) {
+    @content;
+  }
+}
+
+@mixin mediaLPhone {
+  @media screen and (max-width: ($l-mobile)) {
+    @content;
+  }
+}
+
+@mixin mediaMPhone {
+  @media screen and (max-width: ($m-mobile)) {
+    @content;
+  }
+}
+
+@mixin mediaSPhone {
+  @media screen and (max-width: ($s-mobile)) {
+    @content;
+  }
+}
+
+@mixin mediaOldPC {
+  @media screen and (max-height: (768px)) and (min-width: $s-tablet) {
+    @content;
+  }
+}
+
+// Resets
+@mixin resetButton {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+@mixin resetUl {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin resetLi {
+  list-style: none;
+}
+
+// # Helpers
+@mixin flex ($d, $ff, $jus, $al) {
+  display: $d;
+  flex-flow: $ff;
+  justify-content: $jus;
+  align-items: $al;
+}
+
+@mixin fadeAnimation($duration: 0.2s, $mod: 'open') {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility $duration, opacity $duration;
+
+  &_#{$mod} {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity $duration;
+  }
+}
+
+@mixin square($size, $radius: 0) {
+  width: $size;
+  height: $size;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+// hidden scrollbar
+@mixin scrollbarHidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+//
+@mixin fullWindowWidth($withPadding: false) {
+  width: calc(100% + (100vw - 100%));
+  margin-right: calc(((100vw - 100%) / -2));
+  margin-left: calc(((100vw - 100%) / -2));
+  @if $withPadding {
+    padding-right: calc(((100vw - 100%) / 2));
+    padding-left: calc(((100vw - 100%) / 2));
+  }
+}
+
+//
+@mixin hover() {
+  @media #{$cursor} {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media #{$touch} {
+    &:active {
+      @content;
+    }
+  }
+}
+
+// Transforms
+@mixin transition($prop: all, $duration: 0.2s, $function: linear, $delay: 0s) {
+  transition: $prop $duration $function $delay;
+  will-change: $prop;
+}
+
+// =============================================================================
+// String Replace (https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6)
+// =============================================================================
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face (https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6)
+// =============================================================================
+
+@mixin font-face(
+  $name,
+  $path,
+  $weight: null,
+  $style: null,
+  $exts: eot woff2 woff ttf svg
+) {
+  $src: null;
+
+  $extmods: (
+    eot: '?',
+    svg: '#' + str-replace($name, ' ', '_'),
+  );
+
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype',
+  );
+
+  @each $ext in $exts {
+    $extmod: if(
+      map-has-key($extmods, $ext),
+      $ext + map-get($extmods, $ext),
+      $ext
+    );
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append(
+      $src,
+      url(quote($path + '.' + $extmod)) format(quote($format)),
+      comma
+    );
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+    font-display: swap; // add this line
+  }
+}
+
+// Themes
+@mixin light-theme {
+ 
+}
+
+@mixin dark-theme {
+  
+}
+
+@mixin with-dark-theme() {
+  [data-theme='dark'] & {
+    @content();
+  }
+}
+
+// Primitives
+
+@mixin defaultCard {
+  background-color: $white;
+  border-radius: 12px;
+  padding: 24px;
+  @include mediaSTablet {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,10 @@
+.wrapper, .item{
+  @include flex(flex, row nowrap, start, center);
+  gap: 1rem;
+}
+
+.item{
+  &:hover{
+    color: $secondary;
+  }
+}

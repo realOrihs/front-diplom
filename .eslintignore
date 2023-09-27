@@ -1,0 +1,5 @@
+**/node_modules
+.idea
+.git
+.next
+next.config.js

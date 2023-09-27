@@ -1,0 +1,27 @@
+.th{
+  @include transition;
+  cursor: pointer;
+  position: relative;
+  &:hover{
+    color: $primary;
+  }
+}
+
+.sortedIcon{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 4px;
+}
+
+.row{
+  @include transition;
+  cursor: pointer;
+  &:not(&--isActive):hover{
+    background: #d2e6f1;
+  }
+
+  &--isActive{
+    background: #a6cee3;
+  }
+}

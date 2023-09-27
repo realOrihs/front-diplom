@@ -1,0 +1,30 @@
+.section{
+  margin-bottom: 2rem;
+}
+
+.reviews{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.reviews::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 32px
+}
+
+.reviews::-webkit-scrollbar-track {
+  border-radius: 32px;
+}
+
+.reviews::-webkit-scrollbar-thumb {
+  background-color: $scroll_color;
+  border-radius: 5px;
+}
+
+.btnWrapper{
+  width: 100%;
+  @include flex(flex, row, flex-end, start);
+}

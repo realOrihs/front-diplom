@@ -1,0 +1,12 @@
+.section{
+  margin-top: 2rem;
+}
+
+.container{
+  @include flex(flex, column, center, center);
+}
+
+.searchInput{
+  width: 100%;
+  cursor: pointer;
+}

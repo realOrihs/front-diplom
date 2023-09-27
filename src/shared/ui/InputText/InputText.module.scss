@@ -1,0 +1,61 @@
+.inputWrapper{
+  position: relative;
+}
+
+.inputWrapperError{
+  & > .input {
+    border: 2px solid #FA1055;
+  }
+}
+
+.input{
+  width: 100%;
+  padding: 12px 30px 12px 10px;
+  border: 2px solid #B3BCC5;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: $primary;
+  transition: border 0.1s ease-in-out;
+
+  &:not([value='']){
+    padding: 18px 30px 6px 10px;
+  }
+
+  &:focus{
+    border: 2px solid $primary-hover-btn;
+    padding: 18px 30px 6px 10px;
+    outline: none;
+  }
+
+  & + .inputPlaceholder{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 125%;
+    color: #95A3AE;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+    transition: all 0.1s ease-in-out;
+    cursor: text;
+  }
+
+  &:focus + .inputPlaceholder{
+    top: 30%;
+  }
+
+  &:not([value='']) + .inputPlaceholder{
+    top: 30%;
+  }
+}
+
+.iconWrapper{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 14px;
+  width: 15px;
+  height: 16px;
+}

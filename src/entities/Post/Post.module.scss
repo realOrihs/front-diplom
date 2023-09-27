@@ -1,0 +1,8 @@
+.imgWrapper{
+  display: flex;
+  justify-content: flex-end;
+
+  &--fullMode{
+    justify-content: flex-start;
+  }
+}

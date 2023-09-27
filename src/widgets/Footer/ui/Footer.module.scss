@@ -1,0 +1,19 @@
+.footer{
+  position: relative;
+  z-index: $zHeader;
+  height: 90px;
+  background-color: $primary;
+}
+
+.container{
+  @include flex(flex, row nowrap, space-between, center);
+}
+
+.socials{
+  @include flex(flex, row nowrap, center, center);
+  gap: 1rem;
+}
+
+.mail{
+  color: $light-gray;
+}
