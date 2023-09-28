@@ -133,7 +133,7 @@ export const Footer = () => {
           </div>
 
           <Button text onClick={onOpen}>
-            Помощь 123
+            Помощь
           </Button>
         </Container>
       </footer>
