@@ -38,12 +38,12 @@ jobs:
         port: 22
         script: |
           cd ~/front
-          git pull origin main
+          git pull origin master
           git status
          
           pm2 delete front
           pm2 save --force
-          npm ci
+          
           npm run build
           pm2 start npm --name front -- run start -- -p 8080
           pm2 status
