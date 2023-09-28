@@ -42,6 +42,9 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: 22
         script: |
+          export PATH=/bin:/usr/bin:/usr/local/bin
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
           cd ~/front
           git pull origin master
           git status
