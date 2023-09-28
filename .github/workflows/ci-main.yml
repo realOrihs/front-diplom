@@ -47,9 +47,9 @@ jobs:
           git status
          
           pm2 delete front
-          pm2 save --force
-          
+          pm2 save 
+          node -v
           npm run build
           pm2 start npm --name front -- run start -- -p 8080
           pm2 status
-          pm2 save --force
+          pm2 save
